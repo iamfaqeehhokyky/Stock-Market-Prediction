@@ -1,0 +1,8 @@
+numpy
+torch
+matplotlib
+yfinance
+pmdarima
+scipy
+statsmodels
+sklearn
