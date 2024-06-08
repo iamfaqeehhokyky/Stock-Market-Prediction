@@ -6,3 +6,4 @@ pmdarima
 scipy
 statsmodels
 sklearn
+mplfinance
