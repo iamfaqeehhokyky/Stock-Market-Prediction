@@ -7,3 +7,6 @@ scipy
 statsmodels
 scikit-learn
 mplfinance
+sklearn
+mplfinance
+seaborn
