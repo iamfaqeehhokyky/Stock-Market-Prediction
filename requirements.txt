@@ -5,5 +5,5 @@ yfinance
 pmdarima
 scipy
 statsmodels
-sklearn
+scikit-learn
 mplfinance
