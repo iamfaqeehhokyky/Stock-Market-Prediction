@@ -1,11 +1,13 @@
 import numpy as np
 import pandas as pd
+# import pandas_datareader as data
 import yfinance as yf
 from tensorflow.keras.models import load_model
 import streamlit as st
-import seaborn as sns
-import matplotlib
+# import seaborn as sns
+# import matplotlib
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import MinMaxScaler
 
 model = load_model('my_weights.keras')
 
@@ -21,9 +23,14 @@ end = '2022-12-31'
 
 stock =st.text_input('''Enter any of the CAC40 Stock Ticker Symbols, e.g; "GLE.PA", "MT.PA", "ENGI.PA", "RMS.PA", "RNO.PA", "HO.PA", "FR.PA" etc.''', 'AAPL')
 # url = 'https://query1.finance.yahoo.com/v7/finance/download/' + stock + '?period1=' + str(start) + '&period2=' + str(end) + '&interval=1d&events=history'
-# df = pd.read_csv(url)
+# data = pd.read_csv(url)
 
-data = yf.download(stock, start, end)
+# data = yf.download(stock, start, end)
+try:
+    data = yf.download(stock, start=start, end=end, progress=False)
+except Exception as e:
+    st.error(f"Error loading data: {e}")
+    st.stop()
 
 st.subheader(stock + ' Data From ' + start + ' To ' + end)
 st.write(data)
@@ -52,7 +59,6 @@ st.pyplot(fig)
 data_train = pd.DataFrame(data.Close[0: int(len(data)*0.80)])
 data_test = pd.DataFrame(data.Close[int(len(data)*0.80): len(data)])
 
-from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler(feature_range=(0,1))
 
 pas_100_days = data_train.tail(100)
