@@ -23,7 +23,7 @@ stock =st.text_input('''Enter any of the CAC40 Stock Ticker Symbols, e.g; "GLE.P
 # url = 'https://query1.finance.yahoo.com/v7/finance/download/' + stock + '?period1=' + str(start) + '&period2=' + str(end) + '&interval=1d&events=history'
 # df = pd.read_csv(url)
 
-data = yf.download(stock, start ,end)
+data = yf.download(stock, start, end)
 
 st.subheader(stock + ' Data From ' + start + ' To ' + end)
 st.write(data)
