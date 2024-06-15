@@ -26,7 +26,14 @@ st.subheader('''This project was built by three Students from Kibo School of Tec
 start = '2012-01-01'
 end = '2022-12-31'
 
-stock =st.text_input('''Enter any of the CAC40 Stock Ticker Symbols, e.g; "GLE.PA", "MT.PA", "ENGI.PA", "RMS.PA", "RNO.PA", "HO.PA", "FR.PA" etc.''', 'AAPL')
+stock =st.text_input('''Copy and Paste any of the CAC40 Stock Ticker Symbols listed below in the box underneath: \n
+                     "AC.PA", "AI.PA", "AIR.PA", "ALO.PA", "OR.PA", "MC.PA", 
+                     "BN.PA", "BNP.PA", "CAP.PA", "CS.PA", "CA.PA", "ATO.PA", 
+                     "DG.PA", "EL.PA", "ENGI.PA", "KER.PA", "LR.PA", "MT.PA", 
+                     "OR.PA", "RI.PA", "RMS.PA", "SAF.PA", "SGO.PA", "SAN.PA", 
+                     "SU.PA", "STM.PA", "TEP.PA", "TTE.PA", "VIV.PA", "VIE.PA", 
+                     "DG.PA", "ML.PA", "PUB.PA", "HO.PA", "GLE.PA", "FTI.PA", 
+                     "FR.PA", "UG.PA", "RNO.PA" \n You can try other companies' ticker symbol in the box''', 'AAPL')
 
 data = load_data(stock, start, end)
 
