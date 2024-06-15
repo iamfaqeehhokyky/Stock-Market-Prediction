@@ -28,12 +28,6 @@ end = '2022-12-31'
 
 stock =st.text_input('''Enter any of the CAC40 Stock Ticker Symbols, e.g; "GLE.PA", "MT.PA", "ENGI.PA", "RMS.PA", "RNO.PA", "HO.PA", "FR.PA" etc.''', 'AAPL')
 
-# data = yf.download(stock, start, end)
-# try:
-#     data = yf.download(stock, start=start, end=end, progress=False)
-# except Exception as e:
-#     st.error(f"Error loading data: {e}")
-#     st.stop()
 data = load_data(stock, start, end)
 
 st.subheader(stock + ' Data From ' + start + ' To ' + end)
@@ -81,48 +75,17 @@ ma_50_days = data.Close.rolling(50).mean()
 fig1 = create_plot(data.Close, ma_50_days, ma_50_days)
 st.pyplot(fig1)
 
-# plt.plot(data.Close, 'r', label = 'Closing Price')
-# plt.plot(ma_50_days, 'g', label = '50 SMA')
-# plt.plot(data.Close, 'g')
-# plt.plot(ma_50_days, 'r')
-# plt.xlabel('Time')
-# plt.ylabel('Price')
-# plt.legend()
-# st.pyplot(fig1)
-
 st.subheader(stock + ' Price vs MA50 vs MA100')
 ma_100_days = data.Close.rolling(100).mean()
 # fig2 = plt.figure(figsize=(8,6))
 fig2 = create_plot(data.Close, ma_50_days, ma_100_days)
 st.pyplot(fig2)
 
-# plt.plot(data.Close, 'r', label = 'Closing Price')
-# plt.plot(ma_50_days, 'g', label = '50 SMA')
-# plt.plot(ma_100_days, 'b', label = '100 SMA')
-# plt.plot(data.Close, 'r')
-# plt.plot(ma_50_days, 'g')
-# plt.plot(ma_100_days, 'b')
-# plt.xlabel('Time')
-# plt.ylabel('Price')
-# plt.legend()
-# st.pyplot(fig2)
-
 st.subheader(stock + ' Price vs MA100 vs MA200')
 ma_200_days = data.Close.rolling(200).mean()
 # fig3 = plt.figure(figsize=(8,6))
 fig3 = create_plot(data.Close, ma_100_days, ma_200_days)
 st.pyplot(fig3)
-
-# plt.plot(data.Close, 'r', label = 'Closing Price')
-# plt.plot(ma_100_days, 'g', label = '100 SMA')
-# plt.plot(ma_200_days, 'b', label = '200 SMA')
-# plt.plot(data.Close, 'r')
-# plt.plot(ma_100_days, 'g')
-# plt.plot(ma_200_days, 'b')
-# plt.xlabel('Time')
-# plt.ylabel('Price')
-# plt.legend()
-# st.pyplot(fig3)
 
 x = []
 y = []
