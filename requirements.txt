@@ -1,0 +1,12 @@
+numpy
+torch
+matplotlib
+yfinance
+pmdarima
+scipy
+statsmodels
+scikit-learn
+mplfinance
+mplfinance
+seaborn
+streamlit
