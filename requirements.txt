@@ -10,3 +10,4 @@ mplfinance
 mplfinance
 seaborn
 streamlit
+tensorflow

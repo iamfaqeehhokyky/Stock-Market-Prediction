@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import yfinance as yf
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 import streamlit as st
 import seaborn as sns
 import matplotlib
@@ -19,7 +19,7 @@ st.subheader('''This project was built by three Students from Kibo School of Tec
 start = '2012-01-01'
 end = '2022-12-31'
 
-stock =st.text_input('''Enter any of the CAC40 Stock Ticker Symbols, e.g; "MT.PA", "ENGI.PA", "RMS.PA", "RNO.PA", "HO.PA", "FR.PA" etc.''')
+stock =st.text_input('''Enter any of the CAC40 Stock Ticker Symbols, e.g; "GLE.PA", "MT.PA", "ENGI.PA", "RMS.PA", "RNO.PA", "HO.PA", "FR.PA" etc.''', 'AAPL')
 # url = 'https://query1.finance.yahoo.com/v7/finance/download/' + stock + '?period1=' + str(start) + '&period2=' + str(end) + '&interval=1d&events=history'
 # df = pd.read_csv(url)
 
